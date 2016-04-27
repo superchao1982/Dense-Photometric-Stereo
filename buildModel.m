@@ -31,7 +31,7 @@ imgTexFlip = zeros(size(texture));
 for i = 1:3
     imgTexFlip(:,:,i) = flipud(texture(:,:,i));
 end
-%set(h, 'CData', imgTexFlip, 'FaceColor', 'texturemap');
+set(h, 'CData', imgTexFlip, 'FaceColor', 'texturemap');
 
 camlight left;
 lighting phong;

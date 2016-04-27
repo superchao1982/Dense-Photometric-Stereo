@@ -36,7 +36,7 @@ H = 0.9 * ImgNum;
 % get pixel intensities
 grayImgs = zeros([s ImgNum]);
 for i = 1:ImgNum
-    grayImgs(:,:,i) = 0.2989 * Imgs(:,:,1,i) + 0.5870 * Imgs(:,:,2,i) + 0.1140 * Imgs(:,:,3,i);
+    grayImgs(:,:,i) = rgb2gray(Imgs(:,:,:,i)/255);
 end
 % rank pixel intensities, loop over all pixels
 rankPixel = zeros([s ImgNum]);
@@ -62,7 +62,6 @@ end
 [~, deImgIdx] = max(info(:,1) .* (info(:,2) < H));
 
 figure('Name','denominator image'), imshow(Imgs(:,:,:,deImgIdx)/255);
-%figure('Name','denominator image intensity'), imshow(grayImgs(:,:,deImgIdx)/255);
 
 %% Initial Normal Estimation
 
